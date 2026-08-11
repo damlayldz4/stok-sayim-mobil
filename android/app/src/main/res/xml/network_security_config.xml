@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 9+ varsayılan olarak şifresiz (http) trafiği engeller.
+  Laravel'in yerel geliştirme sunucusu (`php artisan serve`) https
+  kullanmadığı için, sadece geliştirme sırasında bu adreslere izin
+  veriyoruz. Prod'a çıkarken bu dosyayı ve AndroidManifest'teki
+  referansı kaldır, gerçek API https üzerinden yayınlanmalı.
+-->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <!-- Gerçek cihazda test ederken bilgisayarının yerel ağ IP'sini
+             de buraya bir <domain> satırı olarak ekle, örn:
+        <domain includeSubdomains="true">192.168.1.34</domain>
+        -->
+    </domain-config>
+</network-security-config>
